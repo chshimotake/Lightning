@@ -129,7 +129,6 @@ void draw()
 			startX=endX;
 		}
 	}
-	println(rand);
 }
 void mousePressed()
 {
