@@ -13,6 +13,7 @@ void setup()
   size(800,800);
   background(0, 0, 0);
   strokeWeight(5);
+  //frameRate(1);
   //noLoop();
 }
 void draw()
@@ -21,7 +22,14 @@ void draw()
 	stroke((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
 	startX=mouseX;
 	startY=mouseY;
-	rand=Math.random()*4;
+	//rand=Math.random()*8;
+	if(rand<8)
+	{
+		rand++;
+	}else if(rand==8)
+	{
+		rand=0;
+	}
 	if(rand<1)
 	{
 		while (startY<=screenHei)
@@ -36,19 +44,20 @@ void draw()
 	}
 	if(rand>=1&&rand<2)
 	{
-		while (startY>=0)
+		while (startX<=screenWid&&startX>=0)
 		{
-			//goes up
-			endY=startY-(int)(Math.random()*10);
-			endX=startX+(int)(Math.random()*20-10);
+			//goes bottom right
+			endY=startY+(int)(Math.random()*15);
+			endX=startX+(int)(Math.random()*15);
 			line(startX, startY, endX, endY);
 			startY=endY;
 			startX=endX;
 		}
+
 	}
 	if(rand>=2&&rand<3)
 	{
-		while (startX<=screenWid)
+		while (startX<=screenWid&&startX>=0)
 		{
 			//goes right
 			endY=startY+(int)(Math.random()*20-10);
@@ -60,7 +69,45 @@ void draw()
 	}
 	if(rand>=3&&rand<4)
 	{	
-		while (startX>=0)
+		while (startX<=screenWid&&startX>=0)
+		{
+			//goes top right
+			endY=startY-(int)(Math.random()*15);
+			endX=startX+(int)(Math.random()*15);
+			line(startX, startY, endX, endY);
+			startY=endY;
+			startX=endX;
+		}
+	}
+	if(rand>=4&&rand<5)
+	{	
+		while (startY>=0)
+		{
+			//goes up
+			endY=startY-(int)(Math.random()*10);
+			endX=startX+(int)(Math.random()*20-10);
+			line(startX, startY, endX, endY);
+			startY=endY;
+			startX=endX;
+		}
+	}
+	if(rand>=5&&rand<6)
+	{	
+		
+		while (startX<=screenWid&&startX>=0)
+		{
+			//goes top left
+			endY=startY-(int)(Math.random()*15);
+			endX=startX-(int)(Math.random()*15);
+			line(startX, startY, endX, endY);
+			startY=endY;
+			startX=endX;
+		}
+	}
+	if(rand>=6&&rand<7)
+	{	
+		
+		while (startX<=screenWid&&startX>=0)
 		{
 			//goes left
 			endY=startY+(int)(Math.random()*20-10);
@@ -70,6 +117,19 @@ void draw()
 			startX=endX;
 		}
 	}
+	if(rand>=7&&rand<8)
+	{	
+		while (startX<=screenWid&&startX>=0)
+		{
+			//goes bottom left
+			endY=startY+(int)(Math.random()*15);
+			endX=startX-(int)(Math.random()*15);
+			line(startX, startY, endX, endY);
+			startY=endY;
+			startX=endX;
+		}
+	}
+	println(rand);
 }
 void mousePressed()
 {
